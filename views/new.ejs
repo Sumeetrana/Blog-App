@@ -1,0 +1,22 @@
+<%- include("partials/header2") %>
+<div class="container border" >
+    <h1>Create a new blog post</h1>
+    <hr>
+<form action="/" method="POST">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title</label>
+      <input type="text" class="form-control" name="title">
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Image Link</label>
+      <input type="text" class="form-control" name="image">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Content</label>
+        <textarea type="text" class="form-control" name="content"></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-info" style="margin-bottom: 10px;">
+    <a href="/" class="btn btn-secondary" style="margin-bottom: 10px;">Go back</a>
+  </form>
+</div>
