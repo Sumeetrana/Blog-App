@@ -1,0 +1,12 @@
+<%- include("partials/header") %>
+<div class="container" style="margin-top: 10px;">
+    <div class="jumbotron">
+        <h2><%= blog.title %></h2>
+    </div>
+    <div id="logo">
+        <img src="<%= blog.imageUrl %>" class="rounded mx-auto d-block" id="img">
+        <p class="text-muted"><%= blog.created.toDateString() %></p>
+        <p class="lead"><%= blog.content %></p>
+    </div>
+</div>
+<%- include("partials/footer") %>

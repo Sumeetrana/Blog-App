@@ -15,6 +15,7 @@ mongoose.connect("mongodb://localhost/blogApp", (err) => {
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static("public"))
 
 app.get("/", (req, res) => {
     Blog.find({}, (err, blogs) => {
@@ -44,6 +45,20 @@ app.post("/", (req, res) => {
 
 app.get("/new", (req, res) => {
     res.render("new");
+})
+
+app.get("/:id", (req ,res) => {
+    Blog.findById(req.params.id, (err, blog) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render("show", {blog: blog})
+        }
+    })
+})
+
+app.get("/:id/edit", (req ,res) => {
+    res.render("edit")
 })
 
 app.listen(3000, () => {

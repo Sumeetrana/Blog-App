@@ -1,0 +1,10 @@
+#logo{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#logo img {
+    max-width: 98%;
+} 
+ 

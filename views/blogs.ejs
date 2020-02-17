@@ -2,16 +2,19 @@
 <div style="margin: 10px;margin-left: 100px;">
 <div class="container">
     <% blogs.forEach((blog) => { %>
-        <div class="card mb-3" style="max-width: 940px;">
+        <div class="card mb-3" style="max-width: 940px; ">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="<%= blog.imageUrl %>" class="card-img">
+                <img src="<%= blog.imageUrl %>" class="card-img" style="height: 100%;">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title"><%= blog.title %></h5>
-                  <p class="card-text"><%= blog.content %></p>
+                  <p class="text-muted" style="display: inline;">Created At <%= blog.created.toDateString() %></p>
+                  <p class="card-text" style="padding-top: 10px;"><%= blog.content.substring(0, 100) %>.......</p>
                   <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  <a href="/<%= blog._id %>" class="btn btn-info">More Info</a>
+                  
                 </div>
               </div>
             </div>
