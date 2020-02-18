@@ -13,7 +13,7 @@ const Blog = require("./model/blogModel");
 //     }
 // })
 
-mongoose.connect("mongodb+srv://sumeet123:sumeet123@cluster0-saqig.mongodb.net/test?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://sumeet123:sumeet123@blogcluster-eojwb.mongodb.net/test?retryWrites=true&w=majority")
     .then(() => {
         console.log("COnnection established");
         
@@ -22,6 +22,16 @@ mongoose.connect("mongodb+srv://sumeet123:sumeet123@cluster0-saqig.mongodb.net/t
         console.log("Error:", err);
         
     })
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://sumeet123:<password>@blogcluster-eojwb.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}))
