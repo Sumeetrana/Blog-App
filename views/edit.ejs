@@ -1,0 +1,24 @@
+<%- include("partials/header2") %>
+<div class="container border" >
+    <h1>Edit blog post</h1>
+    <hr>
+    <!-- <p><%= blog._id %></p> -->
+<form action="/<%= blog._id %>" method="POST">
+    
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" class="form-control" name="title" value="<%= blog.title %>">
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Image Link</label>
+      <input type="text" class="form-control" name="image" value="<%= blog.imageUrl %>">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Content</label>
+        <textarea type="text" class="form-control" name="content"><%= blog.content %></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-info" style="margin-bottom: 10px;">
+    <a href="/<%= blog._id %>" class="btn btn-secondary" style="margin-bottom: 10px;">Go back</a>
+  </form>
+</div>

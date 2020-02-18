@@ -58,7 +58,28 @@ app.get("/:id", (req ,res) => {
 })
 
 app.get("/:id/edit", (req ,res) => {
-    res.render("edit")
+    Blog.findById(req.params.id, (err, foundBlog) => {
+        if (!err) {
+            res.render("edit", {blog: foundBlog})
+        }
+    })
+})
+
+app.post("/:id", (req ,res) => {
+    // res.render("show")
+    Blog.findByIdAndUpdate(req.params.id, req.body, {new:true},  (err, foundBlog) => {
+        if (!err) {
+            res.redirect(`/${req.params.id}`)
+        }
+    })
+})
+
+app.post("/:id/delete", (req ,res) => {
+    Blog.findByIdAndDelete(req.params.id, (err, data) => {
+        if (!err) {
+            res.redirect("/");
+        }
+    })
 })
 
 app.listen(3000, () => {

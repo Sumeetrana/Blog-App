@@ -1,4 +1,33 @@
-<%- include("partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="container navbar navbar-expand-sm bg-primary navbar-dark justify-content-end">
+        <a class="navbar-brand mr-auto" href="/">Blog App</a>
+        <a href="/<%= blog._id %>/edit" class="btn btn-secondary ml-auto mr-1">Edit blog</a>
+        <form action="/<%= blog._id %>/delete" method="post">
+            <!-- <a href="/<%= blog._id %>/delete" class="btn btn-danger ml-auto mr-1">Delete blog</a> -->
+            <input type="submit" class="btn btn-danger ml-auto mr-1" value="Delete blog">
+        </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+            <ul class="navbar-nav text-right">
+                 <li class="nav-item">
+                    <a class="nav-link" href="/camps">All Blogs</a>
+                 </li>
+                
+            </ul>
+        </div>
+     </nav>
+
 <div class="container" style="margin-top: 10px;">
     <div class="jumbotron">
         <h2><%= blog.title %></h2>
@@ -9,4 +38,5 @@
         <p class="lead"><%= blog.content %></p>
     </div>
 </div>
-<%- include("partials/footer") %>
+</body>
+</html>
