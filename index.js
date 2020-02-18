@@ -5,13 +5,23 @@ const app = express();
 
 const Blog = require("./model/blogModel");
 
-mongoose.connect("mongodb://localhost/blogApp", (err) => {
-    if(err) console.log(err);
-    else {
-        console.log("DB connected..");
+// mongoose.connect("mongodb://localhost/blogApp", (err) => {
+//     if(err) console.log(err);
+//     else {
+//         console.log("DB connected..");
         
-    }
-})
+//     }
+// })
+
+mongoose.connect("mongodb+srv://sumeet123:sumeet123@cluster0-saqig.mongodb.net/test?retryWrites=true&w=majority")
+    .then(() => {
+        console.log("COnnection established");
+        
+    })
+    .catch((err) => {
+        console.log("Error:", err);
+        
+    })
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}))
@@ -82,7 +92,9 @@ app.post("/:id/delete", (req ,res) => {
     })
 })
 
-app.listen(3000, () => {
+let port = 3000 || process.env.PORT;
+
+app.listen(port, () => {
     console.log("Server started...");
     
 })
